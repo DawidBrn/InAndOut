@@ -12,5 +12,6 @@ namespace InAndOut.Context
 
         public DbSet<ItemModel> Items { get; set; }
         public DbSet<ExpensesModel> Expenses { get; set; }
+        public DbSet<ExpensesCategoriesModel> ExpensesCategories { get; set; }
     }
 }
