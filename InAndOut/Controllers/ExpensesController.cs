@@ -1,8 +1,10 @@
 ﻿using InAndOut.Context;
 using InAndOut.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace InAndOut.Controllers
 {
@@ -21,6 +23,13 @@ namespace InAndOut.Controllers
         }
         public IActionResult Create()
         {
+            IEnumerable<SelectListItem> CategoryDropdown = _db.ExpensesCategories.Select(i => new SelectListItem
+            {
+                Text = i.CategoryName,
+                Value = i.Id.ToString()
+            });
+            ViewBag.CategoryDropdown = CategoryDropdown;
+           
             return View();
         }
         [HttpPost]

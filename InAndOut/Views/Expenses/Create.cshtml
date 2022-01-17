@@ -18,6 +18,10 @@
                     <div class="col-4">
                         <label asp-for="ExpenseAmount"></label>
                     </div>
+                    <div class="col-4">
+                        <label asp-for="ExpensesCategories"></label>
+                    </div>
+                    
                     
                 </div>
                 <div class="form-group row">
@@ -30,6 +34,14 @@
                         <span asp-validation-for="ExpenseAmount" class="text-danger"></span>
 
                     </div>
+                    <div class="col-4">
+                        <select asp-for="ExpensesCategoriesId" asp-items="@ViewBag.CategoryDropdown" class="form-control" >
+                       <option selected> Category</option>
+                        </select>
+                        <span asp-validation-for="ExpenseAmount" class="text-danger"></span>
+
+                    </div>
+                  
                    
                 </div>
                 <div class="form-group row">

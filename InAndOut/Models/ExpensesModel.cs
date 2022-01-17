@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace InAndOut.Models
 {
@@ -13,5 +14,9 @@ namespace InAndOut.Models
         [Required]
         [Range(1,int.MaxValue,ErrorMessage ="Amount must be grater than 0")]
         public int ExpenseAmount { get; set; }
+        [Display(Name = "Expense category")]
+        public int ExpensesCategoriesId { get; set; }
+        [ForeignKey("ExpensesCategoriesId")]
+        public virtual ExpensesCategoriesModel ExpensesCategories { get; set; }
     }
 }
